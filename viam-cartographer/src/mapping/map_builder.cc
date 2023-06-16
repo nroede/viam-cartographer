@@ -50,6 +50,12 @@ void MapBuilder::SetUp(std::string configuration_directory,
         cartographer::mapping::CreateTrajectoryBuilderOptions(
             trajectory_builder_parameters.get());
 
+    LOG(INFO) << "MATCHPRINT " << trajectory_builder_options_.mutable_trajectory_builder_2d_options()->use_online_correlative_scan_matching() << " (use_online_correlative_scan_matching)";
+    LOG(INFO) << "MATCHPRINT " << trajectory_builder_options_.mutable_trajectory_builder_2d_options()->mutable_real_time_correlative_scan_matcher_options()->linear_search_window() << " (linear_search_window)";
+    LOG(INFO) << "MATCHPRINT " << trajectory_builder_options_.mutable_trajectory_builder_2d_options()->mutable_real_time_correlative_scan_matcher_options()->angular_search_window() << " (angular_search_window)";
+    LOG(INFO) << "MATCHPRINT " << trajectory_builder_options_.mutable_trajectory_builder_2d_options()->mutable_real_time_correlative_scan_matcher_options()->translation_delta_cost_weight() << " (translation_delta_cost_weight)";
+    LOG(INFO) << "MATCHPRINT " << trajectory_builder_options_.mutable_trajectory_builder_2d_options()->mutable_real_time_correlative_scan_matcher_options()->rotation_delta_cost_weight() << " (rotation_delta_cost_weight)";
+    
     return;
 }
 
